@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevilOps Mission Panel</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="components/mi-card.js" defer></script>
+    <script src="components/mi-breadcrumb.js" defer></script>
+    <script src="components/mi-horizontal-scroll.js" defer></script>
+    <script src="components/mi-accordion.js" defer></script>
+    <script src="components/campo-numerico.js" defer></script>
+    <script src="components/mi-slider.js" defer></script>
+    <script src="components/mi-switch.js" defer></script>
+  </head>
+  <body>
+    <main class="mission-shell">
+      <header class="mission-header">
+        <div>
+          <p class="section-kicker">Hell's Kitchen Ops</p>
+          <h1 class="mission-title">DevilOps Mission Panel</h1>
+        </div>
+        <div class="mission-status" aria-label="Estado general de la misión">
+          <span>Estado</span>
+          <strong>Patrulla nocturna activa</strong>
+        </div>
+      </header>
+
+      <mi-breadcrumb>
+        <mi-breadcrumb-item href="#configuracion" active>Configuración</mi-breadcrumb-item>
+        <mi-breadcrumb-item href="#detalles">Detalles</mi-breadcrumb-item>
+        <mi-breadcrumb-item href="#heroes">Héroes</mi-breadcrumb-item>
+      </mi-breadcrumb>
+
+      <section class="dashboard-grid">
+        <mi-card id="configuracion">
+          <h2 slot="title">Configuración</h2>
+          <span slot="meta">Parámetros</span>
+          <div class="config-list">
+            <campo-numerico
+              label="Nivel de amenaza Kingpin"
+              min="0"
+              max="100"
+              step="1"
+              value="72"
+            ></campo-numerico>
+
+            <mi-slider label="Cobertura de radar" min="0" max="100" step="5" value="65">
+              <mi-slider-label position="0">Calle</mi-slider-label>
+              <mi-slider-label position="50">Azoteas</mi-slider-label>
+              <mi-slider-label position="100">Distrito</mi-slider-label>
+            </mi-slider>
+
+            <mi-switch checked>
+              Modo sigilo:
+              <span slot="checked-message">Activado</span>
+              <span slot="unchecked-message">Expuesto</span>
+            </mi-switch>
+          </div>
+        </mi-card>
+
+        <mi-card id="detalles">
+          <h2 slot="title">Detalles de misión</h2>
+          <span slot="meta">Briefing</span>
+          <mi-accordion>
+            <mi-accordion-item open>
+              <span slot="heading">Objetivo</span>
+              <p>Interceptar un intercambio de armas de Turk cerca de los muelles antes de que desaparezca la evidencia.</p>
+            </mi-accordion-item>
+            <mi-accordion-item>
+              <span slot="heading">Condición crítica</span>
+              <p>Evitar daño a civiles, mantener bajo perfil y priorizar información util para el caso.</p>
+            </mi-accordion-item>
+            <mi-accordion-item>
+              <span slot="heading">Punto de encuentro</span>
+              <p>Azotea norte de la Novena Avenida, con salida secundaria hacia los callejones.</p>
+            </mi-accordion-item>
+          </mi-accordion>
+        </mi-card>
+
+        <section class="heroes-panel wide" id="heroes">
+          <div class="panel-heading">
+            <h2>Héroes disponibles</h2>
+            <span class="section-kicker">Equipo</span>
+          </div>
+          <mi-horizontal-scroll>
+            <mi-card plain class="hero-card">
+              <strong>Daredevil</strong>
+              <span>Vigilante</span>
+              <p>Patrulla azoteas, escucha patrones de riesgo y entra primero cuando las cosas se complican.</p>
+            </mi-card>
+            <mi-card plain class="hero-card">
+              <strong>Nelson & Murdock</strong>
+              <span>Legal</span>
+              <p>Convierte pistas en casos defendibles y mantiene la misión dentro de limites claros de la legalidad.</p>
+            </mi-card>
+            <mi-card plain class="hero-card">
+              <strong>Maggie Murdock</strong>
+              <span>Soporte</span>
+              <p>Atiende heridas, ayuda a los aliados y decide cuando una retirada es la mejor opción.</p>
+            </mi-card>
+            <mi-card plain class="hero-card">
+              <strong>Foggy Bear</strong>
+              <span>Contacto</span>
+              <p>Conecta testigos, rumores de tribunal y pequeñas pistas que mueven todo el caso.</p>
+            </mi-card>
+            <mi-card plain class="hero-card">
+              <strong>Karen Page</strong>
+              <span>Investigación</span>
+              <p>Persigue archivos, fuentes y contradicciones que otros prefieren dejar enterradas.</p>
+            </mi-card>
+            <mi-card plain class="hero-card">
+              <strong>Punisher</strong>
+              <span>Fuerza</span>
+              <p>Interviene en escenarios extremos, con prioridad en cortar amenazas armadas rápidamente.</p>
+            </mi-card>
+            <mi-card plain class="hero-card">
+              <strong>Jessica Jones</strong>
+              <span>Rastreo</span>
+              <p>Sigue pistas en terreno, lee mentiras con facilidad y encuentra personas que no quieren aparecer.</p>
+            </mi-card>
+          </mi-horizontal-scroll>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>
